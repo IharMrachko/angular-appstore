@@ -1,0 +1,32 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <h2 class="text-center">Login as administrator</h2>
+
+  <div class="form-control">
+    <label for="email">Email</label>
+    <input
+      formControlName="email"
+      type="text"
+      id="email">
+    <div *ngIf="form.get('email').touched && form.get('email').invalid" class="validation">
+      <small *ngIf="form.get('email').errors.required">Enter email</small>
+      <small *ngIf="form.get('email').errors.email">Enter valid email</small>
+    </div>
+  </div>
+
+  <div class="form-control">
+    <label for="password">Password</label>
+    <input
+      formControlName="password"
+      type="password"
+      id="password">
+    <div *ngIf="form.get('password').touched && form.get('password').invalid" class="validation">
+      <small *ngIf="form.get('password').errors.required">Enter password</small>
+      <small *ngIf="form.get('password').errors.minLength">Min 6 charts</small>
+    </div>
+  </div>
+
+  <button
+    [disabled]="form.invalid || submitted"
+    type="submit"
+    class="btn btn-primary btn-block">Login</button>
+</form>

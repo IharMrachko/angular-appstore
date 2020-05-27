@@ -1,0 +1,12 @@
+ <div class="dashboard" *ngIf="productLoading; else loading">
+  <app-product
+
+    class="box"
+    *ngFor="let product of products | sorting: productService.type "
+    [product] = 'product'></app-product>
+
+ </div>
+
+ <ng-template #loading>
+   <h2 class="text-center">Loading...</h2>
+ </ng-template>

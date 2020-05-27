@@ -1,0 +1,19 @@
+<div
+  class="flex-center text-center product">
+  <div >
+  <h2>{{product.title}}</h2>
+
+  <div class="box" >
+    <quill-view-html [content]="product.photo"></quill-view-html>
+  </div>
+    <h2>Price: {{product.price}}</h2>
+
+    <button [routerLink]="['/product', product.id]" class="btn btn-dark">Open</button>
+
+    <button
+      (click)="addProduct(product)"
+       class="btn btn-dark">Add to cart</button>
+    <div *ngIf="added" class="text-center text-danger">{{added}}</div>
+  </div>
+</div>
+
